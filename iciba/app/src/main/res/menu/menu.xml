@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/item_first"
+        android:icon="@mipmap/ic_menu_first_off"
+        android:title="首页" />
+    <item android:id="@+id/item_inc"
+        android:icon="@mipmap/ic_menu_inc_off"
+        android:title="生词本" />
+    <item android:id="@+id/item_user"
+        android:icon="@mipmap/ic_menu_user_off"
+        android:title="用户" />
+
+</menu>

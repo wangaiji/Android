@@ -1,0 +1,11 @@
+<litepal>
+    <dbname value="iciba" />
+
+    <version value="2" />
+
+    <list>
+        <mapping class="com.example.lenovo.iciba.db.Word" />
+        <!--<mapping class="com.example.lenovo.iciba.gson.Paraphrase" />-->
+    </list>
+
+</litepal>
