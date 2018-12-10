@@ -5,7 +5,7 @@
 
     <list>
         <mapping class="com.example.lenovo.iciba.db.Word" />
-        <!--<mapping class="com.example.lenovo.iciba.gson.Paraphrase" />-->
+        <mapping class="com.example.lenovo.iciba.db.Listword" />-->
     </list>
 
 </litepal>

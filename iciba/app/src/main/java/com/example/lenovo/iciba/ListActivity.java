@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.example.lenovo.iciba.db.Listword;
 import com.example.lenovo.iciba.db.Word;
 import com.example.lenovo.iciba.gson.Associate;
 import com.example.lenovo.iciba.gson.Paraphrase;
@@ -42,6 +43,7 @@ public class ListActivity extends AppCompatActivity {
     private String selectedAssociate2;
     private List<Associate.DataBean> dataBeans;
     private List<Word> wordList;
+    private List<Listword> listwords;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,21 @@ public class ListActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<>(ListActivity.this,android.R.layout.simple_list_item_1,dataList);
         listView = findViewById(R.id.listView);
         listView.setAdapter(adapter);
+
+        listwords = DataSupport.findAll(Listword.class);
+        if (wordList.size()>0) {
+            dataList.clear();
+            for (Listword word:listwords) {
+                dataList.add(word.getWordname());
+            }
+        }
+        button.setVisibility(View.VISIBLE);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dataList.clear();
+            }
+        });
 
         if (searchView != null) {
             try {        //--拿到字节码
@@ -89,11 +106,12 @@ public class ListActivity extends AppCompatActivity {
                     requestAssociate(newText);
                     button.setVisibility(View.INVISIBLE);
                 } else {
-                    List = DataSupport.findAll(Word.class);
+                    Log.d("23456","0");
+                    listwords = DataSupport.findAll(Listword.class);
                     if (wordList.size()>0) {
                         dataList.clear();
-                        for (Word word:wordList) {
-                            dataList.add(paraphrase.getSimple().getQuery());
+                        for (Listword word:listwords) {
+                            dataList.add(word.getWordname());
                         }
                     }
                     button.setVisibility(View.VISIBLE);
@@ -104,7 +122,7 @@ public class ListActivity extends AppCompatActivity {
                         }
                     });
                 }
-                return false;
+                return true;
             }
         });
 
@@ -113,6 +131,7 @@ public class ListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 selectedAssociate1 = dataList.get(i).toString().substring(0,dataList.get(i).toString().indexOf(' '));
                 selectedAssociate2 = dataList.get(i).toString().substring(dataList.get(i).toString().indexOf(' '),dataList.get(i).toString().indexOf(';'));
+
                 Intent  intent = new Intent();
                 intent.putExtra("data_return1",selectedAssociate1);
                 intent.putExtra("data_return2",selectedAssociate2);

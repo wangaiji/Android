@@ -1,6 +1,8 @@
 package com.example.lenovo.iciba;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
@@ -69,7 +71,12 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.hide(firstFragment).hide(incFragment).hide(userFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
-        showNav(R.id.item_first);
+        int id = getIntent().getIntExtra("id", 0);
+        if (id==1) {
+            showNav(R.id.item_inc);
+        } else {
+            showNav(R.id.item_first);
+        }
     }
 
     private void showNav(int navid){
@@ -95,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+
 
 }
 

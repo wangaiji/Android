@@ -1,5 +1,6 @@
 package com.example.lenovo.iciba;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
@@ -61,9 +62,9 @@ public class SecondActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SecondActivity.this,IncFragment.class);
-                intent.putExtra("data","1");
-           //     setResult(RESULT_OK, intent);
+//                Intent intent = new Intent(SecondActivity.this,MainActivity.class);
+//                intent.putExtra("id",1);
+//                startActivity(intent);
                 finish();
             }
         });

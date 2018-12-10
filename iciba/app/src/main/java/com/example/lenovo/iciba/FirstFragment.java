@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.lenovo.iciba.db.Listword;
 import com.example.lenovo.iciba.db.Word;
 import com.example.lenovo.iciba.gson.Paraphrase;
 
@@ -49,6 +50,7 @@ public class FirstFragment extends Fragment{
     private MediaPlayer mediaPlayer1 = new MediaPlayer();
     private String ph_en_mp3;
     private String ph_am_mp3;
+
 
 
     @Override
@@ -96,6 +98,7 @@ public class FirstFragment extends Fragment{
                         requestParaphrase(data.getStringExtra("data_return2"));
                     }
                 }
+
                 break;
             default:
         }
@@ -139,7 +142,10 @@ public class FirstFragment extends Fragment{
                 Log.d("123","4");
                 Log.d("123",responseText);
                 final Paraphrase paraphrase = Utility.handleParaphraseResponse(responseText);
-                paraphrase.save();
+
+                Listword listword = new Listword();
+                listword.setWordname(paraphrase.getInput());
+//                listword.save();
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
