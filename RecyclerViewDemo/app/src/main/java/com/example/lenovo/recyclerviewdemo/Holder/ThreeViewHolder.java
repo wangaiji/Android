@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.example.lenovo.recyclerviewdemo.R;
 
 public class ThreeViewHolder extends RecyclerView.ViewHolder {
+    public View threeView;
     public TextView title3;
     public ImageView image1;
     public ImageView image2;
@@ -16,6 +17,7 @@ public class ThreeViewHolder extends RecyclerView.ViewHolder {
 
     public ThreeViewHolder(View view) {
         super(view);
+        this.threeView = view;
         this.title3 = view.findViewById(R.id.title3);
         this.image1 = view.findViewById(R.id.image1);
         this.image2 = view.findViewById(R.id.image2);

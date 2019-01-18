@@ -2171,7 +2171,7 @@ public class Paraphrase extends DataSupport implements Serializable {
                     private List<String> HYPHENATION;
                     private List<String> POS;
                     private List<PronCodesBean> PronCodes;
-                    private List<String> VIDEOCAL;
+                    private List<String> VIDEOCAL = null;
 
                     public List<String> getFREQ() {
                         return FREQ;
@@ -3475,7 +3475,7 @@ public class Paraphrase extends DataSupport implements Serializable {
                     private List<String> HYPHENATION;
                     private List<String> POS;
                     private List<PronCodesBeanX> PronCodes;
-                    private List<String> VIDEOCAL;
+                    private List<String> VIDEOCAL = null;
 
                     public List<String> getFREQ() {
                         return FREQ;

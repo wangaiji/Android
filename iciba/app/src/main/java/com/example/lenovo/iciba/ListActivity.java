@@ -56,14 +56,14 @@ public class ListActivity extends AppCompatActivity {
         listView = findViewById(R.id.listView);
         listView.setAdapter(adapter);
 
-        listwords = DataSupport.findAll(Listword.class);
-        if (wordList.size()>0) {
-            dataList.clear();
-            for (Listword word:listwords) {
-                dataList.add(word.getWordname());
-            }
-        }
-        button.setVisibility(View.VISIBLE);
+//        listwords = DataSupport.findAll(Listword.class);
+//        if (wordList.size()>0) {
+//            dataList.clear();
+//            for (Listword word:listwords) {
+//                dataList.add(word.getWordname());
+//            }
+//        }
+//        button.setVisibility(View.VISIBLE);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,28 +101,33 @@ public class ListActivity extends AppCompatActivity {
             public boolean onQueryTextChange(String newText) {
                 if (!TextUtils.isEmpty(newText)) {
                     dataList.clear();
+                    adapter.notifyDataSetChanged();
+                    listView.setSelection(0);
                     Log.d("23456","1");
                     Log.d("23456",newText);
                     requestAssociate(newText);
-                    button.setVisibility(View.INVISIBLE);
+//                    button.setVisibility(View.INVISIBLE);
                 } else {
-                    Log.d("23456","0");
-                    listwords = DataSupport.findAll(Listword.class);
-                    if (wordList.size()>0) {
-                        dataList.clear();
-                        for (Listword word:listwords) {
-                            dataList.add(word.getWordname());
-                        }
-                    }
-                    button.setVisibility(View.VISIBLE);
-                    button.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            dataList.clear();
-                        }
-                    });
+                    dataList.clear();
+                    adapter.notifyDataSetChanged();
+                    listView.setSelection(0);
+//                    Log.d("23456","0");
+//                    listwords = DataSupport.findAll(Listword.class);
+//                    if (wordList.size()>0) {
+//                        dataList.clear();
+//                        for (Listword word:listwords) {
+//                            dataList.add(word.getWordname());
+//                        }
+//                    }
+//                    button.setVisibility(View.VISIBLE);
+//                    button.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View view) {
+//                            dataList.clear();
+//                        }
+//                    });
                 }
-                return true;
+              return true;
             }
         });
 

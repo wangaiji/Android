@@ -166,6 +166,7 @@ public class FirstFragment extends Fragment{
                     public void onClick(View view) {
                         Toast.makeText(getContext(),"已添加到生词本",Toast.LENGTH_SHORT).show();
                         Word word1 = new Word();
+
                         word1.setInput(paraphrase.getInput());
                         word1.setLang(paraphrase.getEc().getWord().get(0).getTrs().get(0).getTr().get(0).getL().getI().get(0));
                         word1.save();
@@ -225,8 +226,12 @@ public class FirstFragment extends Fragment{
         String ph_am = paraphrase.getSimple().getWord().get(0).getUsphone();
         mediaPlayer.reset();
         mediaPlayer1.reset();
-        ph_en_mp3 = paraphrase.getLongman().getWordList().get(0).getEntry().getHead().get(0).getVIDEOCAL().get(0);
-        ph_am_mp3 = paraphrase.getSplongman().getWordList().get(0).getEntry().getHead().get(0).getVIDEOCAL().get(0);
+        if(paraphrase.getLongman() != null) {
+            ph_en_mp3 = paraphrase.getLongman().getWordList().get(0).getEntry().getHead().get(0).getVIDEOCAL().get(0);
+        }
+        if(paraphrase.getSplongman() != null) {
+            ph_am_mp3 = paraphrase.getSplongman().getWordList().get(0).getEntry().getHead().get(0).getVIDEOCAL().get(0);
+        }
 
 
         if(title != null) {
