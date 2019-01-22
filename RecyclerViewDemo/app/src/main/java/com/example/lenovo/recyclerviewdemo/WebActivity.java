@@ -170,4 +170,6 @@ public class WebActivity extends AppCompatActivity {
         }
         return bitmap;
     }
+
+
 }

@@ -34,9 +34,13 @@
         android:layout_height="1dp"
         android:background="#45ababab" />
 
-        <!--<ScrollView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent">-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -68,8 +72,8 @@
             android:textColor="#ffffff"
             android:textSize="10sp"
             android:background="#ee0b31"/>
-
     </RelativeLayout>
+
             <WebView
                 android:id="@+id/web"
                 android:scaleType="centerCrop"
@@ -77,5 +81,6 @@
                 android:layout_height="fill_parent"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"  />
-        <!--</ScrollView>-->
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
