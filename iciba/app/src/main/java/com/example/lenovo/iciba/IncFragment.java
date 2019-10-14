@@ -56,10 +56,10 @@ public class IncFragment extends Fragment {
                 word1 = wordList.get(i);
                 String text = word1.getInput();
 //                selectedAssociate1 = dataList.get(i).toString().substring(0, dataList.get(i).toString().indexOf('\n'));
-                Intent intent = new Intent();
-                intent.putExtra("data_return1", text);
-                startActivity(intent);
-                getActivity().finish();
+//                Intent intent = new Intent();
+//                intent.putExtra("data_return1", text);
+//                startActivity(intent);
+//                getActivity().finish();
             }
         });
         queryWords();

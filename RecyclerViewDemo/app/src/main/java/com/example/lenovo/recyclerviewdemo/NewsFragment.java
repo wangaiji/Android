@@ -31,7 +31,6 @@ import okhttp3.Response;
 
 public class NewsFragment extends Fragment {
     private static OkHttpClient client = new OkHttpClient();//使用静态，而不是使用final，因为最终变量不可更改
-
     private SwipeRefreshLayout swipeRefresh;
     private List<Newstech.DataBean> mDataList = new ArrayList<Newstech.DataBean>();
     private RecyclerView recyclerView;
@@ -71,7 +70,6 @@ public class NewsFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
-
         Bundle bundle = getArguments();
         final String data = bundle.getString("name");
 
